@@ -1,41 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Order from '../../components/Order/Order';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { fetchOrders } from '../../store/actions/order';
 
 export class Orders extends Component {
-    state = {
-        orders: [],
-        loading: true
-    }
     componentDidMount() {
-        axios.get('/orders.json')
-            .then(res => {
-                this.setState({loading: false});
-                // console.log(res.data);
-                let fetchedOrders = [];
-                for(let key in res.data) {
-                    fetchedOrders.push({
-                        ...res.data[key],
-                        id: key
-                    });
-                }
-                this.setState({loading: false, orders: fetchedOrders});
-            })
-            .catch(err => {
-                this.setState({loading: false});
-            })
+        this.props.onFetchOrders();
     }
 
     render() {
-        // console.log(this.state.orders);
         let ordersList = [];
-        if(this.state.loading) {
+        if(this.props.loading) {
             ordersList = <Spinner />;
         } else {
-            ordersList = this.state.orders.map(order => {
+            ordersList = this.props.orders.map(order => {
                 // console.log(order);
                 return <Order
                     key={order.id}
@@ -52,4 +34,17 @@ export class Orders extends Component {
     }
 }
 
-export default withErrorHandler(Orders, axios);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onFetchOrders: () => dispatch(fetchOrders())
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        orders: state.orders.orders,
+        loading: state.orders.loading
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Orders, axios));
