@@ -13,7 +13,7 @@ import axios from '../../axios-orders';
 import { purchaseInit } from '../../store/actions/order';
 import { setAuthRedirectPath } from '../../store/actions/auth';
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
     state = {
         purchasing: false,
     }

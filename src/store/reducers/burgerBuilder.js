@@ -4,7 +4,7 @@ import {
     SET_INGREDIENTS,
     FETCH_INGREDIENTS_FAILED
 } from '../actions/actionTypes';
-import { updateObject } from '../utility';
+import { updateObject } from '../../shared/utility';
 
 const INGERDIENT_PRICES = {
     salad: 0.5,

@@ -7,7 +7,7 @@ import {
     FETCH_ORDERS_FAILED,
     FETCH_ORDERS_SUCCESS
 } from "../actions/actionTypes";
-import { updateObject } from "../utility";
+import { updateObject } from "../../shared/utility";
 
 
 const initialState = {
