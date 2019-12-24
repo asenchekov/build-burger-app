@@ -28,15 +28,15 @@ const reducer = (state = initialState, action) => {
             const updatedState = {
                 ingredients: updatedIngredients,
                 totalPrice: state.totalPrice + INGERDIENT_PRICES[action.ingredientName],
-                building: true                
+                building: true
             }
             return updateObject(state, updatedState);
         case REMOVE_INGREDIENT:
-            const updatedIng =  { [action.ingredientName]: state.ingredients[action.ingredientName] + 1 };
+            const updatedIng =  { [action.ingredientName]: state.ingredients[action.ingredientName] - 1 };
             const updatedIngs = updateObject(state.ingredients, updatedIng);
             const updatedSt = {
                 ingredients: updatedIngs,
-                totalPrice: state.totalPrice + INGERDIENT_PRICES[action.ingredientName],
+                totalPrice: state.totalPrice - INGERDIENT_PRICES[action.ingredientName],
                 building: true
             }
             return updateObject(state, updatedSt);

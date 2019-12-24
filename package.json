@@ -40,10 +40,10 @@
     "type": "git",
     "url": "git+https://github.com/asenchekov/burger-app-react.git"
   },
-  "author": "AsenChekov\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D Chekov",
+  "author": "Asen Chekov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/asenchekov/burger-app-react/issues"
   },
-  "homepage": "https://github.com/asenchekov/burger-app-react#readme"
+  "homepage": "."
 }

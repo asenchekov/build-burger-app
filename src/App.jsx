@@ -8,7 +8,7 @@ import Checkout from './containers/Checkout/Checkout';
 import Orders from './containers/Orders/Orders';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
-import { authCeckState } from './store/actions/auth';
+import { authCheckState } from './store/actions/auth';
 
 
 class App extends Component {
@@ -53,7 +53,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignup: () => dispatch(authCeckState())
+    onTryAutoSignup: () => dispatch(authCheckState())
   };
 };
 
